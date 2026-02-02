@@ -27,7 +27,7 @@ function write(){
 }
 write();*/
 
-const page2 = document.querySelector(".page3");
+const page3 = document.querySelector(".page3");
 const items = document.querySelector(".each-circle-row");
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry =>{
@@ -35,10 +35,10 @@ const observer = new IntersectionObserver((entries)=>{
       items.classList.add("from-left");
     }
   });
-  observer.unobserve(entry.target);
+  //observer.unobserve(entry.target);
 
 },{threshold:0.3});
-observer.observe(page2);
+observer.observe(page3);
 
 const redText = document.querySelectorAll(".building-connections");
 
@@ -62,3 +62,21 @@ function moveRedText(){
 
 setInterval(moveRedText, 5000);
 
+const page1 = document.querySelector(".gray-home-box");
+const page2 = document.querySelector(".page2");
+
+const originalTop = page1.offsetTop; // where page1 normally starts
+window.addEventListener("scroll", () => {
+  const distanceFromTop = page2.getBoundingClientRect().top;
+  console.log(distanceFromTop);
+  // When page2 comes close
+  if (distanceFromTop > 0 && distanceFromTop < 658) {
+  page1.style.transform = `translateY(${658 - distanceFromTop}px)`;
+} else if (distanceFromTop <= 0) {
+  page1.style.transform = `translateY(658px)`; // max translation
+} else {
+  page1.style.transform = "translateY(0)";
+}
+
+});
+document.body.style.overflow = "auto";
