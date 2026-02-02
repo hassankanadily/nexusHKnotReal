@@ -64,19 +64,32 @@ setInterval(moveRedText, 5000);
 
 const page1 = document.querySelector(".gray-home-box");
 const page2 = document.querySelector(".page2");
-
+const page4 = document.querySelector(".page4");
+const page5 = document.querySelector(".page5");
+const page6 = document.querySelector(".page6");
+const distanceFromTop2 = page3.getBoundingClientRect().top;
+  console.log(distanceFromTop2);
 const originalTop = page1.offsetTop; // where page1 normally starts
 window.addEventListener("scroll", () => {
   const distanceFromTop = page2.getBoundingClientRect().top;
-  console.log(distanceFromTop);
+  //console.log(distanceFromTop);
   // When page2 comes close
-  if (distanceFromTop > 0 && distanceFromTop < 658) {
-  page1.style.transform = `translateY(${658 - distanceFromTop}px)`;
-} else if (distanceFromTop <= 0) {
-  page1.style.transform = `translateY(658px)`; // max translation
-} else {
-  page1.style.transform = "translateY(0)";
-}
-
+    if (distanceFromTop > 0 && distanceFromTop < 658) {
+    page1.style.transform = `translateY(${658 - distanceFromTop}px)`;
+  } else if (distanceFromTop <= 0) {
+    page1.style.transform = `translateY(658px)`; // max translation
+  } else {
+    page1.style.transform = "translateY(0)";
+  }
+  const distanceFromTop2 = page3.getBoundingClientRect().top;
+  console.log(distanceFromTop2);
+  if (distanceFromTop2 < 844 && distanceFromTop2 > 0){
+    page3.style.transform = `translateY(${(-844 + distanceFromTop2)*0.3}px)`;
+  } else if (distanceFromTop2 <= 0) {
+    page3.style.transform = `translateY((-844*0.3)px)`; // max translation
+  } else {
+    page3.style.transform = "translateY(0)";
+  }
+  
 });
 document.body.style.overflow = "auto";
