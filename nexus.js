@@ -65,10 +65,11 @@ setInterval(moveRedText, 5000);
 const page1 = document.querySelector(".gray-home-box");
 const page2 = document.querySelector(".page2");
 const page4 = document.querySelector(".page4");
+const page34 = document.querySelector(".bottom-page2");
 const page5 = document.querySelector(".page5");
 const page6 = document.querySelector(".page6");
-const distanceFromTop2 = page3.getBoundingClientRect().top;
-  console.log(distanceFromTop2);
+const distanceFromTop3 = page4.getBoundingClientRect().top;
+  console.log(distanceFromTop3);
 const originalTop = page1.offsetTop; // where page1 normally starts
 window.addEventListener("scroll", () => {
   const distanceFromTop = page2.getBoundingClientRect().top;
@@ -82,14 +83,58 @@ window.addEventListener("scroll", () => {
     page1.style.transform = "translateY(0)";
   }
   const distanceFromTop2 = page3.getBoundingClientRect().top;
-  console.log(distanceFromTop2);
-  if (distanceFromTop2 < 844 && distanceFromTop2 > 0){
-    page3.style.transform = `translateY(${(-844 + distanceFromTop2)*0.3}px)`;
+  //console.log(distanceFromTop2);
+  if (distanceFromTop2 < 686 && distanceFromTop2 > 0){
+    page3.style.transform = `translateY(${(-686 + distanceFromTop2)*0.5}px)`;
   } else if (distanceFromTop2 <= 0) {
-    page3.style.transform = `translateY((-844*0.3)px)`; // max translation
+    page3.style.transform = `translateY((-686)px)`; // max translation
   } else {
     page3.style.transform = "translateY(0)";
   }
-  
+  const distanceFromTop34 = page34.getBoundingClientRect().top;
+  //console.log(distanceFromTop2);
+  if (distanceFromTop34 < 1350 && distanceFromTop34 > 0){
+    page34.style.transform = `translateY(${(-1350 + distanceFromTop34)*0.5}px)`;
+  } else if (distanceFromTop34 <= 0) {
+    page34.style.transform = `translateY((-1350*0.5)px)`; // max translation
+  } else {
+    page34.style.transform = "translateY(0)";
+  }
+  const distanceFromTop4 = page4.getBoundingClientRect().top;
+  console.log(distanceFromTop4);
+  if (distanceFromTop4 < 1829 && distanceFromTop4 > 0){
+    page4.style.transform = `translateY(${(-1829 + distanceFromTop4)*0.5}px)`;
+  } else if (distanceFromTop4 <= 0) {
+    page4.style.transform = `translateY((-1829*0.5)px)`; // max translation
+  } else {
+    page4.style.transform = "translateY(0)";
+  }
+  const distanceFromTop5 = page5.getBoundingClientRect().top;
+  console.log(distanceFromTop4);
+  if (distanceFromTop5 < 2400 && distanceFromTop5 > 0){
+    page5.style.transform = `translateY(${(-2400 + distanceFromTop5)*0.5}px)`;
+  } else if (distanceFromTop5 <= 0) {
+    page5.style.transform = `translateY((-2400*0.5)px)`; // max translation
+  } else {
+    page5.style.transform = "translateY(0)";
+  }
+  const distanceFromTop6 = page6.getBoundingClientRect().top;
+  console.log(distanceFromTop4);
+  if (distanceFromTop6 < 2900 && distanceFromTop6 > 0){
+    page6.style.transform = `translateY(${(-2900 + distanceFromTop6)*0.5}px)`;
+  } else if (distanceFromTop6 <= 0) {
+    page6.style.transform = `translateY((-2900*0.5)px)`; // max translation
+  } else {
+    page6.style.transform = "translateY(0)";
+  }
+  const totalHeight = page1.offsetHeight; // start with first page
+  const allTransformed = distanceFromTop6 <= 0;
+
+  if (allTransformed) {
+  document.body.style.height = "3000px"; // shrink body
+  } else {
+  document.body.style.height = ""; // let normal layout resume
+  }
+
 });
 document.body.style.overflow = "auto";
